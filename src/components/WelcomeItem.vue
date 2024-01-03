@@ -21,8 +21,8 @@ export default {
 <template>
   <ul>
     <li v-if="!items.length">Loading...</li>
-    <li v-for="{ body, username, likes } in items">
-      <slot name="item" v-bind="{ body, username, likes }" />
+    <li v-for="(item, index) in items" :key="index">
+      <slot name="item" v-bind="{ index, item }" />
     </li>
   </ul>
 </template>

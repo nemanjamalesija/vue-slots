@@ -10,10 +10,15 @@ export default {
 }
 </script>
 
+<!-- <SingleItem :body="body" :username="username" :likes="likes" /> -->
+
 <template>
   <MiddleComponent>
-    <template v-slot:item="{ body, username, likes }">
-      <SingleItem :body="body" :username="username" :likes="likes" />
+    <template v-slot:item="{ index, item }">
+      <div class="item">
+        <p>{{ item.body }}</p>
+        <p class="meta">by {{ item.username }} | {{ item.likes }} likes</p>
+      </div>
     </template>
   </MiddleComponent>
 </template>
