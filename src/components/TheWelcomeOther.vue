@@ -1,11 +1,11 @@
 <script>
 import MiddleComponent from './MiddleComponent.vue'
-// import SingleItem from './SingleItem.vue'
+import SingleItem from './SingleItem.vue'
 
 export default {
   components: {
-    MiddleComponent
-    // SingleItem
+    MiddleComponent,
+    SingleItem
   },
 
   data() {
@@ -32,12 +32,19 @@ export default {
 <!-- <SingleItem :body="body" :username="username" :likes="likes" /> -->
 
 <template>
-  <MiddleComponent :items="sirevi">
-    <template v-slot:item="{ index, item }">
-      <div class="item">
-        <p>{{ item.body }}</p>
-        <p class="meta">by {{ item.name }} | {{ item.nlikes }} likes</p>
-      </div>
-    </template>
-  </MiddleComponent>
+  <div class="custom-container">
+    <MiddleComponent :items="sirevi">
+      <template v-slot:item="{ index, item }">
+        <SingleItem :username="item.name" :body="item.text" :likes="item.nlikes" />
+      </template>
+    </MiddleComponent>
+  </div>
 </template>
+
+<style scoped>
+.custom-container {
+  border: 1px solid red;
+
+  margin-top: 2rem;
+}
+</style>
