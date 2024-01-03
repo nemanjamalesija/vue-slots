@@ -1,29 +1,19 @@
 <script>
 import MiddleComponent from './MiddleComponent.vue'
+import SingleItem from './SingleItem.vue'
 
 export default {
   components: {
-    MiddleComponent
-  },
-
-  data() {
-    return {
-      mast: [
-        { id: '1', name: 'slast' },
-        { id: '2', name: 'pehar' }
-      ]
-    }
+    MiddleComponent,
+    SingleItem
   }
 }
 </script>
 
 <template>
-  <MiddleComponent :sir="mast">
-    <template v-slot:item="{ name }">
-      <div class="item">
-        <p>{{ body }}</p>
-        <p class="meta">by {{ name }} likes</p>
-      </div>
+  <MiddleComponent>
+    <template v-slot:item="{ body, username, likes }">
+      <SingleItem :body="body" :username="username" :likes="likes" />
     </template>
   </MiddleComponent>
 </template>

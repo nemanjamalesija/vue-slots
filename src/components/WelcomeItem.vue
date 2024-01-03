@@ -1,11 +1,6 @@
 <script>
 export default {
-  props: {
-    sir: {
-      type: Array
-    }
-  },
-
+  props: ['api-url', 'per-page'],
   data() {
     return {
       items: []
@@ -25,12 +20,9 @@ export default {
 
 <template>
   <ul>
-    <li>
-      <h1>{{ sir[0].name }}</h1>
-    </li>
-    <li v-if="!sir.length">Loading...</li>
-    <li v-for="{ name } in sir">
-      <slot name="item" v-bind="{ name }" />
+    <li v-if="!items.length">Loading...</li>
+    <li v-for="{ body, username, likes } in items">
+      <slot name="item" v-bind="{ body, username, likes }" />
     </li>
   </ul>
 </template>
