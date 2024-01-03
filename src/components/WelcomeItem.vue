@@ -1,19 +1,23 @@
 <script>
 export default {
-  props: ['api-url', 'per-page'],
-  data() {
-    return {
-      items: []
+  props: {
+    items: {
+      type: Array
     }
-  },
-  mounted() {
-    // mock remote data fetching
-    setTimeout(() => {
-      this.items = [
-        { body: 'Scoped Slots', username: 'Masni sir', likes: 20 },
-        { body: 'Vue testing', username: 'Mali Drazen', likes: 10 }
-      ]
-    }, 1000)
+    // data() {
+    //   return {
+    //     items: []
+    //   }
+    // }
+    // mounted() {
+    //   // mock remote data fetching
+    //   setTimeout(() => {
+    //     this.items = [
+    //       { body: 'Scoped Slots', username: 'Masni sir', likes: 20 },
+    //       { body: 'Vue testing', username: 'Mali Drazen', likes: 10 }
+    //     ]
+    //   }, 1000)
+    // }
   }
 }
 </script>

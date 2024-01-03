@@ -1,20 +1,28 @@
 <script>
 import MiddleComponent from './MiddleComponent.vue'
-import TheWelcomeOther from './TheWelcomeOther.vue'
 // import SingleItem from './SingleItem.vue'
 
 export default {
   components: {
-    MiddleComponent,
-    TheWelcomeOther
+    MiddleComponent
     // SingleItem
   },
 
   data() {
     return {
-      items: [
-        { id: '1', username: 'Jahac apokalipse', body: 'Slast je lorem ipsum soldum', likes: 25 },
-        { id: '2', username: 'pehar', body: 'Velicanstveno somertajm sadness', likes: 50 }
+      sirevi: [
+        {
+          id: '3',
+          name: 'Drogasi masni',
+          text: 'Drogasi masni testiraju scoped slots',
+          nlikes: 15
+        },
+        {
+          id: '4',
+          name: 'Gordana Aksentijevic',
+          text: 'Kada iskasljah zorom mladak jahasmo konje',
+          nlikes: 10
+        }
       ]
     }
   }
@@ -24,14 +32,12 @@ export default {
 <!-- <SingleItem :body="body" :username="username" :likes="likes" /> -->
 
 <template>
-  <MiddleComponent :items="items">
+  <MiddleComponent :items="sirevi">
     <template v-slot:item="{ index, item }">
       <div class="item">
         <p>{{ item.body }}</p>
-        <p class="meta">by {{ item.username }} | {{ item.likes }} likes</p>
+        <p class="meta">by {{ item.name }} | {{ item.nlikes }} likes</p>
       </div>
     </template>
   </MiddleComponent>
-
-  <TheWelcomeOther />
 </template>
