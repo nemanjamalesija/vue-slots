@@ -1,6 +1,11 @@
 <script>
 export default {
-  props: ['api-url', 'per-page'],
+  props: {
+    sir: {
+      type: Array
+    }
+  },
+
   data() {
     return {
       items: []
@@ -10,8 +15,8 @@ export default {
     // mock remote data fetching
     setTimeout(() => {
       this.items = [
-        { body: 'Scoped Slots Guide', username: 'Evan You', likes: 20 },
-        { body: 'Vue Tutorial', username: 'Natalia Tepluhina', likes: 10 }
+        { body: 'Scoped Slots', username: 'Masni sir', likes: 20 },
+        { body: 'Vue testing', username: 'Mali Drazen', likes: 10 }
       ]
     }, 1000)
   }
@@ -20,9 +25,12 @@ export default {
 
 <template>
   <ul>
-    <li v-if="!items.length">Loading...</li>
-    <li v-for="{ body, username, likes } in items">
-      <slot name="item" v-bind="{ body, username, likes }" />
+    <li>
+      <h1>{{ sir[0].name }}</h1>
+    </li>
+    <li v-if="!sir.length">Loading...</li>
+    <li v-for="{ name } in sir">
+      <slot name="item" v-bind="{ name }" />
     </li>
   </ul>
 </template>
